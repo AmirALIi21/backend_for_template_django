@@ -13,12 +13,16 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-#BASE_DIR = Path(__file__).resolve().parent.parent
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
+# SMTP server settings
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025  # Use the appropriate port for your SMTP server
+EMAIL_USE_TLS = False  # Use TLS security
+EMAIL_USE_SSL = False  # Use SSL security (choose one, either TLS or SSL)
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-ge@#y$jw&xqb!ot-t#-p#fn2z(f_6z4sv$_t46i%g3my)_m+fp'
@@ -126,10 +130,10 @@ STATIC_URL = '/static/'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'tsk1/static/tsk1'),
+    os.path.join(BASE_DIR, 'tsk1/static'),
 ]
-
-
+#MEDIA_URL = '/media/'
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
